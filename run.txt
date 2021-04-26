@@ -1,0 +1,1 @@
+gunicorn CV_project.wsgi:application

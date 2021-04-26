@@ -1,0 +1,78 @@
+##################################################################################
+#                                  connexion psql:                               #
+##################################################################################
+sudo su postgres
+
+psql -d cvweb -U chaps -w
+
+
+lister tables:
+\l
+
+afficher les tables:
+\dt
+
+
+CREATE TABLE cv_project_niveaux ( "id" serial NOT NULL PRIMARY KEY, "niveau" varchar(200) NOT NULL UNIQUE, "intitule" varchar(2000) NOT NULL UNIQUE );
+
+
+##################################################################################
+#                                 MAJ manage.py:                                 #
+##################################################################################
+Modifier le fichier manage
+
+python3 manage.py makemigrations
+
+python3 manage.py migrate
+
+
+##################################################################################
+#                                  django shell:                                 #
+##################################################################################
+python3 manage.py shell
+
+from comp.models import Competences, Niveaux, Experiences, Contatcs, Messages
+
+###########################################################
+retrouver un élément et le positionner dans un contener liaison 1 à plusieurs:
+expert = Niveaux.objects.get(note=4)
+python.niveau_id = expert
+
+
+###########################################################
+création de deux objets avec création de liaison plusieurs à plusieurs:
+d_debut = datetime.datetime(2012,6,1,0,0)
+d_fin = datetime.datetime(2015,7,1,0,0)
+airbus = Experiences(date_debut=d_debut,date_fin=d_fin,client="AIRBUS",intitule="integrations technique",detail="integration FSA-NG A350 validation de module de maintenance")
+airbus.save()
+airbus.compet.add(python)
+airbus.save()
+
+
+d_fin = datetime.datetime(2017,6,30,0,0)
+d_debut = datetime.datetime(2015,2,1,0,0)
+rte = Experiences(date_debut=d_debut,date_fin=d_fin,client="RTE",intitule="MCO applications web gestion du réseau électrique",detail="interface entre les différents métiers installations/dev/utilisateurs")
+
+
+######   competence   ########
+
+sql = Competences(competence="SQL",detail="connaissances générales sur la constitution des BDD et l'utilisation de SQL",niveau_id="2")
+
+PYTHON
+Réseau
+wireshark
+GIT
+SQL
+MATLAB
+Electronic tool
+Linux
+SHELL
+JAVA
+management
+
+MDP admin DJANGO:
+
+Ga....n1
+
+
+
