@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+CV_project/settings.py
+*settings.py*
+
 
 # C extensions
 *.so
