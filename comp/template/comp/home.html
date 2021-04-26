@@ -1,0 +1,83 @@
+{% extends 'comp/base.html' %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="box">
+		{% if langue == 'fr' %}
+                    <h3>Services</h3>
+	            <li>Réflexion et mise en place d'une stratégie de test pour un nouveau composant logiciel</li>
+	            <li>Intégration de nouvelles versions logiciels</li>
+	            <li>Rédaction d'un plan de test à partir de la spécification</li>
+	            <li>Conception des tests</li>
+	            <li>Etablir une matrice de compliance</li>
+	            <li>Passage de tests</li>
+	            <li>Création de faits techniques</li>
+	            <li>Suivi de faits techniques</li>
+	            <li>Automatisation de tests</li>
+                    <li>Réalisation de tests de non-régression</li>
+                    <li>Gestion du suivi de l'ensemble de ces tâches</li>
+	            <li>Tests d'acceptation</li>
+	            <li>Développement web</li>
+		{% elif langue == 'en' %}
+                    <h3>Services</h3>
+                    <li>Reflexion and setting of a test strategy for a new software</li>
+                    <li>Integration for new software versions</li>
+                    <li>Reraction of testing plan from specifications</li>
+                    <li>Technical test conception</li>
+                    <li>Compliance atrice elaboration</li>
+                    <li>Tests execution</li>
+                    <li>Creation of technical facts</li>
+                    <li>Monitoring of technical facts</li>
+                    <li>Automatisation of tests</li>
+                    <li>Implementation and execution non-régression</li>
+                    <li>Global test campagne monitoring</li>
+                    <li>Acceptance tests</li>
+                    <li>Web development</li>
+
+		{% endif %}
+
+            </div>
+        </div>
+   </div>
+    <div class="container">
+        <div class="row">
+            <div class="box">
+
+		{% if langue == 'fr' %}
+
+                     <h3>Ma prestation</h3>
+		     <p style="text-align:justify">Je propose mes services et mes compétences à des entreprises qui développent des outils informatiques et passer en revue le produit avant qu’il ne soit passé en production. L’objectif est de permettre à ces entreprises de mettre à disposition un produit de meilleure qualité et d'optimiser au maximum le temps de test et de validation du produit. L'optimisation du temps de test passe par de l'automatisation des tests et des process. Je suis en mesure de proposer un service de mise en place de campagnes de tests, d'automatisation des tests, automatisation des mises en production.</p>
+
+                    <h3>Le test logiciel</h3>
+                    <img class="img-responsive img-border img-left" src='../../static/comp/img/ISTQB.jpeg' />
+                    <p style="text-align:justify">Les systèmes logiciels font partie intégrante de la vie quotidienne, depuis les applications commerciales (ex : les services bancaires) jusqu'aux produits pour les consommateurs (ex : voitures). La plupart des gens ont eu une expérience avec un logiciel qui n'a pas fonctionné comme prévu. Un logiciel qui ne fonctionne pas correctement peut entraîner de nombreux problèmes, y compris la perte d'argent, de temps ou entacher la réputation de l'entreprise, et même entraîner des blessures qui peuvent être mortelles. Les tests logiciels sont un moyen d'évaluer la qualité du logiciel et de réduire le risque de défaillance de ce logiciel en cours de fonctionnement.</p>
+                    <h3>DevOps</h3>
+                    <p style="text-align:justify">Aujourd’hui la méthodologie agile s’est énormément développée et apporte un nouveau mode de fonctionnement dans l’évolution de software. Les développements se font de façon itérative et le déploiement d’une version logiciel se fait à chaque itération permettant d’apporter des évolutions constantes et de corriger rapidement un bug. Ce mode de fonctionnement apparait sous l’acronyme CI/CD (intégration continue/développement continu). Ce mode de fonctionnement à fait émerger un nouveau métier, celui de DevOps, ce métier consiste à être la passerelle entre les équipes de développement et les équipes de déploiement, d’être le garant de la conformité du produit qui transite, ceci nécessite de pouvoir tester le produit rapidement pour en garantir la qualité, pour cela l’automatisation de process est indispensable. Les connaissances des métiers de développement et de mise en production sont des éléments nécessaires pour ce métier. Ce métier est détaillé dans l’ouvrage « Découvrir DevOps » (ISBN 978-2-10-077906-2)
+
+
+		{% elif langue == 'en' %}
+
+                     <h3>My service</h3>
+		     <p style="text-align:justify">I offer my services and skills to companies that develop IT tools and review the product before it goes into production. The objective is to enable these companies to provide a better quality product and to optimize the testing and validation time of the product as much as possible. Optimizing test time involves automating tests and processes. I am able to offer a service for setting up test campaigns, automation of tests, automation of production deployment</p>
+
+
+		    <h3>Software testing</h3>
+                    <img class="img-responsive img-border img-left" src='../../static/comp/img/ISTQB.jpeg' />
+                    <p style="text-align:justify">Software systems are integrante part of everyday life, from commerciales applications (ex: banking services) to consuming products (ex: cars). Most people have had experience with software that hasn't worked as expected. Software that is not working properly can cause many problems, including lost of money, time or damage the company's reputation it can even lead to injuries which can be fatal. Software test is a solution to evaluate the quality of a software and reduce the risk this software failing.</p>
+		    </br>
+		    <h3>DevOps</h3>
+		    <p style="text-align:justify">Today the agile methodology has developed enormously and brings a new mode of operation in the evolution of software. The developments are done iteratively and the deployment is done at each iteration of a software version, this constant changes can bring constant evolutions and a bug can be quickly corrected. This operating mode appears under the acronym CI/CD (Continus Integration/Continus development). This operating mode has led to the emergence of a new profession, DEVOPS, this job consists of being the bridge between the development teams ans the deployment teams, being the guarantor of the of the conformity of the product. This requires being able to test the product quickly to guarantee its quality, for this reason, automation process is is essential. Knowledge of development and deployment are necessary for this job. This profession is detailed in the book "« Découvrir DevOps » (ISBN 978-2-10-077906-2</p>
+
+
+		{% endif %}
+
+	    </div>
+        </div>
+   </div>
+
+
+{% endblock %}
+
+

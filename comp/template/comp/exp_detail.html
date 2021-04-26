@@ -1,0 +1,42 @@
+<td>
+    <center>
+        <h2>
+	    {% if langue == 'fr' %}
+		{{ detail.intitule }}
+            {% elif langue == 'en' %}
+	        {{ detail.intitule_en }}
+            {% endif %}
+	</h2>
+        <hr>
+    </center>
+    <h3> CLIENT : {{ detail.client}}</br></h3>
+    {% if langue == 'fr' %}
+        Du: {{detail.date_debut}}</br>
+        Au: {{detail.date_fin}}</br>
+    {% elif langue == 'en' %}
+        From: {{detail.date_debut}}</br>
+        To: {{detail.date_fin}}</br>
+    {% endif %}
+    <p style="text-align:center;"><img src='../../static/comp/img/{{detail.logo_client}}' /></p>
+    </br>
+    </br>
+    {% if langue == 'fr' %}
+        <pre>{{ detail.detail }}</pre>
+    {% elif langue == 'en' %}
+        <pre>{{ detail.detail_en }}</pre>
+    {% endif %}
+    <h4>
+    {% if langue == 'fr' %}
+        </br>Compétences mises en application:</br></br>
+    {% elif langue == 'en' %}
+        </br>Useful skills:</br></br>
+    {% endif %}
+    </h4>
+    {% for comp in compet %}
+        <li>
+            <a href="{% url 'competence' comp_id=comp.id %}">
+                {{ comp.competence }}
+            </a>
+        </li>
+    {% endfor %}
+</td>

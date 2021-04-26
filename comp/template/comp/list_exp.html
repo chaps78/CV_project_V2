@@ -1,0 +1,24 @@
+{% for exp in experiences %}
+    <center>
+        <h4>
+	<a href="{% url 'experiences' xp_id=exp.id %}">
+            {% if langue == 'fr' %}
+                {{ exp.intitule }} -- {{ exp.client }}
+	    {% elif langue == 'en' %}
+	        {{ exp.intitule_en }} -- {{ exp.client }}
+	    {% endif %}
+        </a>
+	</h4>
+     </center
+     <br>
+     <center>
+	 {% if langue == 'fr' %}
+             Du :<time>{{ exp.debut }}</time> au : 
+	     <time>{{ exp.fin }}</time>
+	 {% elif langue == 'en' %}
+             From :<time>{{ exp.debut }}</time> to :
+             <time>{{ exp.fin }}</time>
+	 {% endif %}
+	 <br><br>
+    </center>
+{% endfor %}
