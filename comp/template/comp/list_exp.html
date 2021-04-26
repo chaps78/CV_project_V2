@@ -1,15 +1,68 @@
+<script>
+        function select_exp(id){
+		var selected_detail = document.getElementById("exp_detail_" + id);
+                selected_detail.className="exp_detail_affiche";
+        }
+
+
+
+
+</script>
+
+
+<style>
+
+.exp_detail{
+        position:absolute;
+
+
+
+}
+.exp_item{
+        cursor: pointer;
+        padding-bottom: 10px;
+
+}
+
+.exp_item:hover{
+        text-decoration: underline;
+
+}
+.exp_hidden{
+        visibility:hidden;
+
+}
+
+
+.exp_detail_affiche{
+	position:relative
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
 {% for exp in experiences %}
     <center>
         <h4>
-	<a href="{% url 'experiences' xp_id=exp.id %}">
+	<span class="exp_item" onClick="select_exp({{ exp.id }})">
             {% if langue == 'fr' %}
                 {{ exp.intitule }} -- {{ exp.client }}
 	    {% elif langue == 'en' %}
 	        {{ exp.intitule_en }} -- {{ exp.client }}
 	    {% endif %}
-        </a>
+        </span>
 	</h4>
-     </center
+    </center>
+
      <br>
      <center>
 	 {% if langue == 'fr' %}
@@ -21,4 +74,8 @@
 	 {% endif %}
 	 <br><br>
     </center>
+    <span class="exp_detail exp_hidden" id="exp_detail_{{ exp.id }}">
+	    <p style="text-align:center;"><img src='../../static/comp/img/{{exp.logo_client}}' /></p>
+	    <pre>{{ exp.detail }}</pre>
+    </span>
 {% endfor %}
