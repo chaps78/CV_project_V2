@@ -1,7 +1,11 @@
 <script>
         function select_exp(id){
-		var selected_detail = document.getElementById("exp_detail_" + id);
-                selected_detail.className="exp_detail_affiche";
+	var select_all_details = document.getElementsByClassName("exp_detail")
+	for (var i = 0; i < select_all_details.length; i++) {
+       		select_all_details[i].className="exp_detail exp_hidden";
+        }
+	var selected_detail = document.getElementById("exp_detail_" + id);
+        selected_detail.className="exp_detail_affiche exp_detail";
         }
 
 
@@ -12,12 +16,16 @@
 
 <style>
 
-.exp_detail{
-        position:absolute;
-
-
-
+@keyframes detail_annim {
+    0% {
+        transform: scale(1, 0);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
 }
+
+
 .exp_item{
         cursor: pointer;
         padding-bottom: 10px;
@@ -30,13 +38,17 @@
 }
 .exp_hidden{
         visibility:hidden;
+	position:absolute;
 
 }
 
 
 .exp_detail_affiche{
-	position:relative
+	position:relative;
+	animation: detail_annim 1000ms;
 }
+
+
 
 
 </style>
@@ -76,6 +88,29 @@
     </center>
     <span class="exp_detail exp_hidden" id="exp_detail_{{ exp.id }}">
 	    <p style="text-align:center;"><img src='../../static/comp/img/{{exp.logo_client}}' /></p>
-	    <pre>{{ exp.detail }}</pre>
+	    {% if langue == 'fr' %}
+	    	<pre>{{ exp.detail }}</pre>
+	    {% elif langue == 'en' %}
+	    	<pre>{{ exp.detail_en }}</pre>
+	    {% endif %}
+
+
+
+	    <h4>
+    		{% if langue == 'fr' %}
+    		    </br>Compétences mises en application:</br></br>
+    		{% elif langue == 'en' %}
+    		    </br>Useful skills:</br></br>
+    		{% endif %}
+	    </h4>
+        <ul style="list-style:none">
+    	{% for comp in exp.comp %}
+            <li>
+		<a href="{% url 'competence' comp_id=0 %}">
+            	{{comp.competence}}
+		</a>
+	    </li>
+    	{% endfor %}
+        </ul>
     </span>
 {% endfor %}
