@@ -151,11 +151,16 @@ def experiences(request,xp_id=0):
         xp.debut=xp.date_debut.strftime("%m/%Y")
         xp.fin=xp.date_fin.strftime("%m/%Y")
 
+    for exp in experiences:
+        exp.comp = exp.compet.all() 
+        #comps[exp.id]=comp
+
     if xp_id == 0:
         context = {
             'langue' : lang ,
             'experiences' : experiences,
             'xp_id' : xp_id
+#            'comps' : comps
         }
     else:
         try:
