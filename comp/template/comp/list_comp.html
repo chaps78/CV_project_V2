@@ -1,17 +1,3 @@
-<script>
-	function select_comp(id){
-	var details = document.getElementsByClassName("comp_detail");
-	for (var i = 0; i < details.length; i++) {
-	   details[i].className="comp_detail detail_hidden";
-	}
-	var selected_detail = document.getElementById("comp_detail_" + id);
-	selected_detail.className="comp_detail";
-	}
-
-
-
-
-</script>
 <style>
 .comp_item{
 	cursor: pointer;
@@ -97,10 +83,42 @@
 		{% if langue == 'fr' %}
                     <pre style="width:100%">{{ competence.detail }}</pre>
 		{% elif langue == 'en' %}
-		    <pre style="width:100%"">{{ competence.detail_en }}</pre>
+		    <pre style="width:100%">{{ competence.detail_en }}</pre>
 		{% endif %}
 	    </li>
 	{% endfor %}
 	    </ul>
     </span>
 </table>
+
+
+<script>
+
+var queryString = window.location.search;       // récupère les params d'url
+var urlParams = new URLSearchParams(queryString); // set un objet URLSearchParams
+var compID = urlParams.get('compID'); // get la valeur du param compID
+/* var compID = 1; */ // si tu veux prouver que ça marche décommente ce bout de code
+//var compID = 1;
+if (compID !== null) {  // s'il existe on ouvre la compétence en question
+        //alert(compID);
+        //var selected_detail = document.getElementById("comp_detail_" + compID);
+        //selected_detail.className="comp_detail";
+        select_comp(compID);
+}
+
+
+
+        function select_comp(id){
+        var details = document.getElementsByClassName("comp_detail");
+        for (var i = 0; i < details.length; i++) {
+           details[i].className="comp_detail detail_hidden";
+        }
+        var selected_detail = document.getElementById("comp_detail_" + id);
+        selected_detail.className="comp_detail";
+        }
+
+
+
+
+</script>
+

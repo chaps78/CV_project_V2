@@ -1,4 +1,7 @@
 <script>
+
+
+
         function select_exp(id){
 	var select_all_details = document.getElementsByClassName("exp_detail")
 	for (var i = 0; i < select_all_details.length; i++) {
@@ -16,16 +19,6 @@
 
 <style>
 
-@keyframes detail_annim {
-    0% {
-        transform: scale(1, 0);
-    }
-    100% {
-        transform: scale(1, 1);
-    }
-}
-
-
 .exp_item{
         cursor: pointer;
         padding-bottom: 10px;
@@ -37,15 +30,15 @@
 
 }
 .exp_hidden{
-        visibility:hidden;
-	position:absolute;
-
+max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
 }
 
 
 .exp_detail_affiche{
-	position:relative;
-	animation: detail_annim 1000ms;
+	max-height: 500px;
+	transition: max-height 0.25s ease-in;
 }
 
 
@@ -86,7 +79,7 @@
 	 {% endif %}
 	 <br><br>
     </center>
-    <span class="exp_detail exp_hidden" id="exp_detail_{{ exp.id }}">
+    <div class="exp_detail exp_hidden" id="exp_detail_{{ exp.id }}">
 	    <p style="text-align:center;"><img src='../../static/comp/img/{{exp.logo_client}}' /></p>
 	    {% if langue == 'fr' %}
 	    	<pre>{{ exp.detail }}</pre>
@@ -106,11 +99,11 @@
         <ul style="list-style:none">
     	{% for comp in exp.comp %}
             <li>
-		<a href="{% url 'competence' comp_id=0 %}">
+		    <a href="{% url 'competences' %}?compID={{ comp.id }}">
             	{{comp.competence}}
 		</a>
 	    </li>
     	{% endfor %}
         </ul>
-    </span>
+    </div>
 {% endfor %}
