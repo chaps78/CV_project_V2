@@ -24,14 +24,15 @@ from django.contrib import staticfiles
 from comp import views
 
 urlpatterns = [
-    url('expe/',include('comp.urls_exp')),
-    url('services', views.home),
+#    url('expe/',include('comp.urls_exp')),
+    url('expe/',views.experiences,name="experiences"),
+    url('services/', views.home),
     url('admoun/', admin.site.urls),
-    url('comp/', include('comp.urls')),#, namespace='comp'),
+    url('comp/', views.competences,name='competences'),
     url('contact/', views.contact,name='contact'),
     
-    url('fr', views.fr,name='francais'),
-    url('en', views.en,name='anglais'),
+    url('fr/', views.fr,name='francais'),
+    url('en/', views.en,name='anglais'),
     url(r'^$', views.home),
 
 #    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
