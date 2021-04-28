@@ -31,8 +31,8 @@ urlpatterns = [
     url('comp/', views.competences,name='competences'),
     url('contact/', views.contact,name='contact'),
     
-    url('fr', views.fr,name='francais'),
-    url('en', views.en,name='anglais'),
+    url('fr/', views.fr,name='francais'),
+    url('en/', views.en,name='anglais'),
     url(r'^$', views.home),
 
 #    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
