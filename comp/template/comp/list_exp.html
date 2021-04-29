@@ -9,6 +9,8 @@
         }
 	var selected_detail = document.getElementById("exp_detail_" + id);
         selected_detail.className="exp_detail_affiche exp_detail";
+	var selected_detail = document.getElementById("exp_detail_text_" + id);
+        selected_detail.className="exp_detail_affiche exp_detail";
         }
 
 
@@ -39,6 +41,7 @@ max-height: 0;
 .exp_detail_affiche{
 	max-height: 500px;
 	transition: max-height 0.25s ease-in;
+	transition-delay: 2s;
 }
 
 
@@ -80,11 +83,11 @@ max-height: 0;
 	 <br><br>
     </center>
     <div class="exp_detail exp_hidden" id="exp_detail_{{ exp.id }}">
-	    <p style="text-align:center;"><img src='../../static/comp/img/{{exp.logo_client}}' /></p>
+	    <p style="text-align:center;"><img  src='../../static/comp/img/{{exp.logo_client}}' /></p>
 	    {% if langue == 'fr' %}
-	    	<pre>{{ exp.detail }}</pre>
+	    	<pre class="exp_detail exp_hidden" id="exp_detail_text_{{ exp.id }}">{{ exp.detail }}</pre>
 	    {% elif langue == 'en' %}
-	    	<pre>{{ exp.detail_en }}</pre>
+	    	<pre class="exp_detail exp_hidden" id="exp_detail_text_{{ exp.id }}">{{ exp.detail_en }}</pre>
 	    {% endif %}
 
 
